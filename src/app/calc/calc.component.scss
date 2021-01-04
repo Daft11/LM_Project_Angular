@@ -1,0 +1,46 @@
+@import "src/styles/variables.scss";
+
+.start {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 85vh;
+  min-height: 700px;
+  .section-picture {
+    max-height: 200px;
+  }
+  h1 {
+    position: relative;
+    text-align: center;
+    &::after {
+      content: "";
+      display: block;
+      height: 4px;
+      width: 85%;
+      margin: 0 auto;
+      margin-top: 10px;
+      background-color: $lmgreencolor;
+      border-radius: 3px;
+      box-shadow: 0px -10px 15px 5px rgba(102, 192, 93, 0.13);
+    }
+  }
+  .pipeline-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    .pipeline-element {
+      text-align: center;
+      .pipeline-element-picture {
+        height: 80px;
+        max-width: 60px;
+      }
+    }
+  }
+  .btn {
+    width: 250px;
+  }
+}
+.hiden {
+  width: 0;
+}

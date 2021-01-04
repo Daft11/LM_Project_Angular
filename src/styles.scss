@@ -1,1 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
+
+//<МИКСИНЫ>===============================================================================================
+@import "./styles/mixins.scss";
+//</МИКСИНЫ>===============================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: Roboto, "Montserrat", sans-srif;
+//</Шрифт по умолчанию>==========================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+@import "./styles/variables.scss";
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "./styles/null.scss";
+
+body {
+  font-size: 15px;
+  overflow-x: hidden;
+  line-height: 1.6;
+  background-color: $bgcolor;
+  color: $colorgray;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+  max-width: $mw + px;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+  @media (max-width: $md1+px) {
+    max-width: none;
+    padding: 0 20px;
+  }
+  @media (max-width: $md2+px) {
+    max-width: none;
+    padding: 0 20px;
+  }
+  @media (max-width: $md3+px) {
+    max-width: none;
+    padding: 0 20px;
+  }
+}
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+
+.btn {
+  outline: none;
+  background-color: $contrast;
+  border: 2px solid $lmgreencolor;
+  border-radius: 8px;
+  height: 50px;
+  width: 190px;
+  /* text-align: center; */
+  /* margin: 0 auto; */
+  font-weight: 700;
+  font-size: 1.1em;
+  font-family: Roboto;
+  color: $colorgray;
+  transition: linear 0.1s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: $lmgreencolor;
+  color: $contrast;
+  /* border-radius: 8px 8px 0px 0px; */
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+}

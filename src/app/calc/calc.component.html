@@ -1,0 +1,19 @@
+<section class="start container">
+  <h1>Здесь вы можете просчитать начальную стоимость кухни самостоятельно!</h1>
+  <object
+    class="section-picture"
+    data="../../assets/images/svg/kitchen2.svg"
+    type="image/svg+xml"
+  ></object>
+  <h2>Что для этого нужно?</h2>
+  <div class="pipeline-container">
+    <div class="pipeline-element" *ngFor="let step of roadMap">
+      <img
+        class="pipeline-element-picture"
+        src="../../assets/images/svg/{{ step.imgUrl }}"
+      />
+      <h3>{{ step.whatToDoDescription }}</h3>
+    </div>
+  </div>
+  <button class="btn" (click)="onNextClick()">Начнём!</button>
+</section>

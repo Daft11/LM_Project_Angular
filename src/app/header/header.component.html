@@ -1,0 +1,30 @@
+<header class="header">
+  <div class="header__inner container">
+    <a href="#"
+      ><img
+        class="header__logo"
+        src="https://leroymerlin.ru/etc/designs/elbrus/images/logo.svg"
+        alt=""
+    /></a>
+    <nav class="navigation__container">
+      <ul class="navigation-list">
+        <li
+          class="navigation-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a routerLink="/" class="navigation__icon-home"> </a>
+        </li>
+        <li class="navigation-link" routerLinkActive="active">
+          <a routerLink="/calc" class="navigation__icon-tools"> </a>
+        </li>
+        <li class="navigation-link" routerLinkActive="active">
+          <a routerLink="/queue" class="navigation__icon-ticket"></a>
+        </li>
+        <li class="navigation-link" routerLinkActive="active">
+          <a routerLink="/info" class="navigation__icon-info"></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

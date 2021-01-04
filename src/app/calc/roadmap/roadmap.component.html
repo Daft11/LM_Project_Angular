@@ -1,0 +1,30 @@
+<ul
+  class="pipeline__container"
+  #container
+  [style.width.px]="containerWidth"
+  appOnCalcLoads
+  (refreshData)="reciveData($event)"
+>
+  <span
+    class="pipeline__active-pointer"
+    #pointer
+    [style.top.px]="activeOffset"
+  ></span>
+  <!-- [style.width.px]="containerWidth" -->
+  <!-- [style.top.px]="pointerPositionTop" -->
+  <li
+    class="pipeline__element"
+    routerLinkActive="active"
+    *ngFor="let step of roadMap"
+  >
+    <a
+      [routerLink]="['/calc/', step.name]"
+      style="
+      background: url('../../assets/images/svg/{{ step.imgUrl }}');
+      background-repeat:no-repeat;
+      background-size:contain;
+      background-size:60px 70px;
+      background-position:bottom 50% right 50%;"
+    ></a>
+  </li>
+</ul>
