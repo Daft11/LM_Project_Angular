@@ -1,4 +1,3 @@
-import { EventEmitter } from '@angular/core';
 import { stepModel } from './step.model';
 
 export class RoadmapService {

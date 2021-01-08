@@ -16,6 +16,7 @@ import { GeometryComponent } from './calc/geometry/geometry.component';
 import { ResultComponent } from './calc/result/result.component';
 import { RoadmapService } from './calc/roadmap/roadmap.service';
 import { OnCalcLoadsDirective } from './directives/on-calc-loads.directive';
+import { FacadeService } from './calc/facade/facade.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -44,7 +45,7 @@ const appRoutes: Routes = [
     OnCalcLoadsDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
-  providers: [RoadmapService],
+  providers: [RoadmapService, FacadeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
