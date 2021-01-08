@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,11 +21,33 @@ import { FacadeService } from './calc/facade/facade.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
-  { path: 'calc', component: CalcComponent },
-  { path: 'calc/facade', component: FacadeComponent },
-  { path: 'calc/countertop', component: CountertopComponent },
-  { path: 'calc/geometry', component: GeometryComponent },
-  { path: 'calc/result', component: ResultComponent },
+  {
+    path: 'calc',
+    // component: CalcComponent,
+    children: [
+      { path: '', component: CalcComponent, data: { animationState: 'Start' } },
+      {
+        path: 'facade',
+        component: FacadeComponent,
+        data: { animationState: 'One' },
+      },
+      {
+        path: 'countertop',
+        component: CountertopComponent,
+        data: { animationState: 'Two' },
+      },
+      {
+        path: 'geometry',
+        component: GeometryComponent,
+        data: { animationState: 'Three' },
+      },
+      {
+        path: 'result',
+        component: ResultComponent,
+        data: { animationState: 'Four' },
+      },
+    ],
+  },
   { path: 'queue', component: QueueComponent },
   { path: 'info', component: InfoComponent },
 ];
@@ -44,7 +67,12 @@ const appRoutes: Routes = [
     InfoComponent,
     OnCalcLoadsDirective,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+  ],
   providers: [RoadmapService, FacadeService],
   bootstrap: [AppComponent],
 })

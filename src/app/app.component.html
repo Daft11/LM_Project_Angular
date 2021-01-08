@@ -1,4 +1,6 @@
 <app-header></app-header>
 <br />
+<div [@triggerName]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
 <app-roadmap></app-roadmap>
-<router-outlet></router-outlet>

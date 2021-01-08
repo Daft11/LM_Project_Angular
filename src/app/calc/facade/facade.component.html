@@ -2,7 +2,13 @@
   <h1 class="section-header">Выберите коллекцию фасадов</h1>
   <div class="cards__section container">
     <div class="item__card" *ngFor="let facadeItem of products" id="resh_blue">
-      <img class="item__img" src="{{ facadeItem.imgUrl }}" alt="Реш Синий" />
+      <img
+        class="item__img"
+        src="{{ facadeItem.imgUrl }}"
+        alt="Реш Синий"
+        width="200px"
+        height="200px"
+      />
       <h4 class="item__name">{{ facadeItem.name }}</h4>
       <p class="item__description">
         {{ facadeItem.material }}<span></span>{{ facadeItem.cover }}
