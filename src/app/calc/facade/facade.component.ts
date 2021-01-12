@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FacadeService } from './facade.service';
-import { FacadeModel } from './facade.model';
+import { FacadeService } from '../../services/facade.service';
+import { ProductModel } from '../../models/product.model';
 
 @Component({
   selector: 'app-facade',
@@ -8,7 +8,7 @@ import { FacadeModel } from './facade.model';
   styleUrls: ['./facade.component.scss'],
 })
 export class FacadeComponent implements OnInit {
-  products: FacadeModel[];
+  products: ProductModel[];
 
   constructor(private facadeService: FacadeService) {}
 

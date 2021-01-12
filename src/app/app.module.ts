@@ -17,15 +17,23 @@ import { GeometryComponent } from './calc/geometry/geometry.component';
 import { ResultComponent } from './calc/result/result.component';
 import { RoadmapService } from './calc/roadmap/roadmap.service';
 import { OnCalcLoadsDirective } from './directives/on-calc-loads.directive';
-import { FacadeService } from './calc/facade/facade.service';
+import { FacadeService } from './services/facade.service';
+import { CountertopService } from './services/countertop.service';
 
 const appRoutes: Routes = [
-  { path: '', component: HomepageComponent },
+  {
+    path: '',
+    component: HomepageComponent,
+    data: { animationState: 'Home' },
+    pathMatch: 'full',
+  },
   {
     path: 'calc',
+    data: { animationState: 'Calc' },
     // component: CalcComponent,
+    // pathMatch: 'full',
     children: [
-      { path: '', component: CalcComponent, data: { animationState: 'Start' } },
+      { path: '', component: CalcComponent },
       {
         path: 'facade',
         component: FacadeComponent,
@@ -48,8 +56,12 @@ const appRoutes: Routes = [
       },
     ],
   },
-  { path: 'queue', component: QueueComponent },
-  { path: 'info', component: InfoComponent },
+  {
+    path: 'queue',
+    component: QueueComponent,
+    data: { animationState: 'Queue' },
+  },
+  { path: 'info', component: InfoComponent, data: { animationState: 'Info' } },
 ];
 
 @NgModule({
@@ -73,7 +85,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
   ],
-  providers: [RoadmapService, FacadeService],
+  providers: [RoadmapService, FacadeService, CountertopService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,6 +1,6 @@
-<app-header></app-header>
+<app-header style="position: fixed"></app-header>
 <br />
-<div [@triggerName]="prepareRoute(outlet)">
+<div [@triggerName]="prepareRoute(outlet)" style="margin-top: 80px">
   <router-outlet #outlet="outlet"></router-outlet>
 </div>
 <app-roadmap></app-roadmap>

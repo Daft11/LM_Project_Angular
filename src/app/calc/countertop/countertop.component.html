@@ -1,2 +1,20 @@
-<h1>countertop works!</h1>
-<!-- <app-roadmap></app-roadmap> -->
+<section class="container">
+  <h1 class="section-header">Выберите столешницу</h1>
+  <div class="cards__section container">
+    <div class="item__card" *ngFor="let facadeItem of products" id="resh_blue">
+      <img
+        class="item__img"
+        src="{{ facadeItem.imgUrl }}"
+        alt="Реш Синий"
+        width="200px"
+        height="200px"
+      />
+      <h4 class="item__name">{{ facadeItem.name }}</h4>
+      <p class="item__description">
+        {{ facadeItem.material }}<span *ngIf="facadeItem.cover !== ''"></span
+        >{{ facadeItem.cover }}
+      </p>
+      <a href="#" class="item__choice-button">Выбрать</a>
+    </div>
+  </div>
+</section>
