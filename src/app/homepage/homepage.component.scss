@@ -1,0 +1,44 @@
+@import "src/styles/variables.scss";
+@import "src/styles/mixins.scss";
+
+.start {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 85vh;
+  min-height: 700px;
+  .section-picture {
+    max-height: 200px;
+  }
+  h1 {
+    margin-bottom: -80px;
+    position: relative;
+    text-align: center;
+    &::after {
+      content: "";
+      display: block;
+      height: 4px;
+      width: 85%;
+      margin: 0 auto;
+      margin-top: 10px;
+      background-color: $lmgreencolor;
+      border-radius: 3px;
+      box-shadow: 0px -10px 15px 5px rgba(102, 192, 93, 0.13);
+    }
+  }
+  .button-group {
+    @include flexbox;
+    flex-direction: row;
+    justify-content: space-between;
+    .button-choice {
+      flex: 0 0 45%;
+      min-width: 300px;
+      min-height: 100px;
+      background-color: $lmgreencolor;
+      color: $contrast;
+      word-wrap: break-word;
+      padding: 0 20px;
+    }
+  }
+}

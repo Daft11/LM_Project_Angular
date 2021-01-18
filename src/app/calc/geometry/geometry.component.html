@@ -1,0 +1,115 @@
+<form class="container shape-box" id="shape-box">
+  <div class="section-header">
+    <h2>Выберите геометрию кухни</h2>
+  </div>
+  <div class="geometry__cards-box">
+    <label for="line-shaped" class="radio-container"
+      >Прямая
+      <input
+        type="radio"
+        id="line-shaped"
+        name="shape"
+        value="line"
+        checked
+        (focus)="shape = 'line'"
+      />
+      <span class="radio-checkmark"></span>
+    </label>
+    <label for="l-shaped-left" class="radio-container"
+      >Угловая левая
+      <input
+        type="radio"
+        id="l-shaped-left"
+        name="shape"
+        value="l-shaped-left"
+        (focus)="shape = 'l-left'"
+      />
+      <span class="radio-checkmark"></span>
+    </label>
+    <label for="l-shaped-right" class="radio-container"
+      >Угловая правая
+      <input
+        type="radio"
+        id="l-shaped-right"
+        name="shape"
+        value="l-shaped-right"
+        (focus)="shape = 'l-right'"
+      />
+      <span class="radio-checkmark"></span>
+    </label>
+    <label for="u-shaped" class="radio-container"
+      >П-образная
+      <input
+        type="radio"
+        id="u-shaped"
+        name="shape"
+        value="u-shaped"
+        (focus)="shape = 'u'"
+      />
+      <span class="radio-checkmark"></span>
+    </label>
+  </div>
+  <div class="enter__size-box">
+    <div class="enter__size-display">
+      <div
+        class="enter__display-wall"
+        [ngClass]="{
+          'line-shaped': shape === 'line',
+          'l-shaped-left': shape === 'l-left',
+          'l-shaped-right': shape === 'l-right',
+          'u-shaped': shape === 'u',
+          'anim-top-border': animToWall === 'top',
+          'anim-left-border': animToWall === 'left',
+          'anim-right-border': animToWall === 'right'
+        }"
+      ></div>
+    </div>
+    <span class="enter__display-disclaimer"
+      >Гарнитур будет занимать весь указанный размер!</span
+    >
+    <div class="enter__size-input-area">
+      <label>
+        Введитe первый размер:
+        <input
+          type="number"
+          name="first"
+          min="1000"
+          maxlength="4"
+          onkeypress="return onlyNumberKey(event)"
+          onInput="checkLength(4,this)"
+          (focus)="animWall(0)"
+          autofocus
+        />
+      </label>
+      <label [ngClass]="{ 'label-disabled': shape === 'line' }">
+        Введитe второй размер:
+        <input
+          type="number"
+          name="second"
+          min="1000"
+          maxlength="4"
+          onkeypress="return onlyNumberKey(event)"
+          onInput="checkLength(4,this)"
+          [disabled]="shape === 'line'"
+          (focus)="animWall(1)"
+        />
+      </label>
+      <label [ngClass]="{ 'label-disabled': !(shape === 'u') }">
+        Введитe третий размер:
+        <input
+          type="number"
+          name="third"
+          min="1000"
+          maxlength="4"
+          onkeypress="return onlyNumberKey(event)"
+          onInput="checkLength(4,this)"
+          [disabled]="!(shape === 'u')"
+          (focus)="animWall(2)"
+        />
+      </label>
+    </div>
+    <button class="next__btn btn" href="#calculating__area" id="calc__btn">
+      Выполнить расчет
+    </button>
+  </div>
+</form>

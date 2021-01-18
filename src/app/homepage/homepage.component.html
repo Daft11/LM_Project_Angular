@@ -1,1 +1,25 @@
-<h1>homepage works!</h1>
+<section class="start container">
+  <h1>Добро пожаловать в отдел проектирования кухни!</h1>
+  <img
+    class="section-picture"
+    src="../../assets/images/svg/kitchen2.svg"
+    width="250"
+    height="200"
+  />
+  <div class="button-group">
+    <button
+      class="button-choice btn"
+      (click)="onNextClick()"
+      routerLink="/calc"
+    >
+      Я хочу посчитать минимальную стоимость проктной кухни
+    </button>
+    <button
+      class="button-choice btn"
+      (click)="onNextClick()"
+      routerLink="/queue"
+    >
+      Я хочу записаться в очередь к специалисту
+    </button>
+  </div>
+</section>
