@@ -18,7 +18,13 @@
         }}<span *ngIf="countertopItem.cover !== ''"></span
         >{{ countertopItem.cover }}
       </p>
-      <button href="#" class="item__choice-button">Выбрать</button>
+      <button
+        href="#"
+        class="item__choice-button"
+        (click)="onClickChoose(countertopItem.idName)"
+      >
+        Выбрать
+      </button>
     </div>
   </div>
 </section>

@@ -1,4 +1,4 @@
-<form class="container shape-box" id="shape-box">
+<form class="container shape-box" id="shape-box" [formGroup]="geometryForm">
   <div class="section-header">
     <h2>Выберите геометрию кухни</h2>
   </div>
@@ -11,7 +11,8 @@
         name="shape"
         value="line"
         checked
-        (focus)="shape = 'line'"
+        (focus)="shapeName = 'line'"
+        formControlName="shape"
       />
       <span class="radio-checkmark"></span>
     </label>
@@ -22,7 +23,8 @@
         id="l-shaped-left"
         name="shape"
         value="l-shaped-left"
-        (focus)="shape = 'l-left'"
+        (focus)="shapeName = 'l-left'"
+        formControlName="shape"
       />
       <span class="radio-checkmark"></span>
     </label>
@@ -33,7 +35,8 @@
         id="l-shaped-right"
         name="shape"
         value="l-shaped-right"
-        (focus)="shape = 'l-right'"
+        (focus)="shapeName = 'l-right'"
+        formControlName="shape"
       />
       <span class="radio-checkmark"></span>
     </label>
@@ -44,7 +47,8 @@
         id="u-shaped"
         name="shape"
         value="u-shaped"
-        (focus)="shape = 'u'"
+        (focus)="shapeName = 'u'"
+        formControlName="shape"
       />
       <span class="radio-checkmark"></span>
     </label>
@@ -54,10 +58,10 @@
       <div
         class="enter__display-wall"
         [ngClass]="{
-          'line-shaped': shape === 'line',
-          'l-shaped-left': shape === 'l-left',
-          'l-shaped-right': shape === 'l-right',
-          'u-shaped': shape === 'u',
+          'line-shaped': shapeName === 'line',
+          'l-shaped-left': shapeName === 'l-left',
+          'l-shaped-right': shapeName === 'l-right',
+          'u-shaped': shapeName === 'u',
           'anim-top-border': animToWall === 'top',
           'anim-left-border': animToWall === 'left',
           'anim-right-border': animToWall === 'right'
@@ -78,10 +82,11 @@
           onkeypress="return onlyNumberKey(event)"
           onInput="checkLength(4,this)"
           (focus)="animWall(0)"
+          formControlName="firstSize"
           autofocus
         />
       </label>
-      <label [ngClass]="{ 'label-disabled': shape === 'line' }">
+      <label [ngClass]="{ 'label-disabled': shapeName === 'line' }">
         Введитe второй размер:
         <input
           type="number"
@@ -90,11 +95,12 @@
           maxlength="4"
           onkeypress="return onlyNumberKey(event)"
           onInput="checkLength(4,this)"
-          [disabled]="shape === 'line'"
+          [disabled]="shapeName === 'line'"
           (focus)="animWall(1)"
+          formControlName="secondSize"
         />
       </label>
-      <label [ngClass]="{ 'label-disabled': !(shape === 'u') }">
+      <label [ngClass]="{ 'label-disabled': !(shapeName === 'u') }">
         Введитe третий размер:
         <input
           type="number"
@@ -103,12 +109,18 @@
           maxlength="4"
           onkeypress="return onlyNumberKey(event)"
           onInput="checkLength(4,this)"
-          [disabled]="!(shape === 'u')"
+          [disabled]="!(shapeName === 'u')"
           (focus)="animWall(2)"
+          formControlName="thirdSize"
         />
       </label>
     </div>
-    <button class="next__btn btn" href="#calculating__area" id="calc__btn">
+    <button
+      class="next__btn btn"
+      id="calc__btn"
+      type="submit"
+      (click)="onSubmitClick()"
+    >
       Выполнить расчет
     </button>
   </div>

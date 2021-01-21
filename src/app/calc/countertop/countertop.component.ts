@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CountertopService } from '../../services/countertop.service';
+import { CalculateService } from '../../services/calculate.service';
 import { ProductModel } from '../../models/product.model';
 
 @Component({
@@ -10,9 +11,17 @@ import { ProductModel } from '../../models/product.model';
 export class CountertopComponent implements OnInit {
   products: ProductModel[];
 
-  constructor(private countertopService: CountertopService) {}
+  constructor(
+    private countertopService: CountertopService,
+    private calculateService: CalculateService
+  ) {}
 
   ngOnInit(): void {
     this.products = this.countertopService.getProducts();
+  }
+
+  onClickChoose(countertopId: string) {
+    const idName = countertopId;
+    this.calculateService.setCountertop(idName);
   }
 }

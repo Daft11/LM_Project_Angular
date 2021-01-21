@@ -135,6 +135,9 @@
         //     animation: underlineBlinking 1.6s linear infinite;
         // }
       }
+      &:disabled {
+        color: lighten($color-text-main, 50);
+      }
     }
   }
   @keyframes underlineBlinking {

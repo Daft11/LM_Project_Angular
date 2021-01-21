@@ -1,7 +1,7 @@
 <section class="container">
   <h1 class="section-header">Выберите коллекцию фасадов</h1>
   <div class="cards__section container">
-    <div class="item__card" *ngFor="let facadeItem of products" id="resh_blue">
+    <div class="item__card" *ngFor="let facadeItem of products">
       <img
         class="item__img"
         src="{{ facadeItem.imgUrl }}"
@@ -12,7 +12,13 @@
       <p class="item__description">
         {{ facadeItem.material }}<span></span>{{ facadeItem.cover }}
       </p>
-      <button href="#" class="item__choice-button">Выбрать</button>
+      <button
+        href="#"
+        class="item__choice-button"
+        (click)="onClickChoose(facadeItem.idName)"
+      >
+        Выбрать
+      </button>
     </div>
   </div>
 </section>
