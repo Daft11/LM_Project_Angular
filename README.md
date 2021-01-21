@@ -1,13 +1,13 @@
 # LM Project Angular
 
-LM_Project migration to Angular.
-Project is designed for LeroyMerlin company for specific needs of kitchen design department.
-For now project is planed to use with only desctop devices via V8 engine.
-Project provides client tools for quick cost calculation of kicten set.
-It allows client choose facade collection, countertop color and geometry of kitchen.
-App do brute force of all possible configurations and returns minimal costs set for client's chosen settings.
-All complex calculation are executes on backend side.
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
+LM_Project migration to Angular.<br/>
+Project is designed for LeroyMerlin company for specific needs of kitchen design department.<br/>
+For now project is planed to use with only desctop devices via V8 engine.<br/>
+Project provides client tools for quick cost calculation of kicten set.<br/>
+It allows client choose facade collection, countertop color and geometry of kitchen.<br/>
+App do brute force of all possible configurations and returns minimal costs set for client's chosen settings.<br/>
+All complex calculation are executes on backend side.<br/>
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.<br/>
 
 ## Development server
 
