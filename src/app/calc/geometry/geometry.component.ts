@@ -20,6 +20,9 @@ export class GeometryComponent implements OnInit {
 
   ngOnInit(): void {
     this.geometryForm = this.formServcie.getGeometryForm();
+    this.geometryForm
+      .get('shape')
+      .valueChanges.subscribe((val) => (this.shapeName = val));
   }
 
   // convenience getter for easy access to form fields
@@ -42,10 +45,6 @@ export class GeometryComponent implements OnInit {
       secondSize,
       thirdSize,
     ]); //push new new data and then emit changes
-  }
-
-  getShape(): string {
-    return 'l-left';
   }
 
   animWall(inputId: number): void {

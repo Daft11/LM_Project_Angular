@@ -11,7 +11,6 @@
         name="shape"
         value="line"
         checked
-        (focus)="shapeName = 'line'"
         formControlName="shape"
       />
       <span class="radio-checkmark"></span>
@@ -22,8 +21,7 @@
         type="radio"
         id="l-shaped-left"
         name="shape"
-        value="l-shaped-left"
-        (focus)="shapeName = 'l-left'"
+        value="l-left"
         formControlName="shape"
       />
       <span class="radio-checkmark"></span>
@@ -34,8 +32,7 @@
         type="radio"
         id="l-shaped-right"
         name="shape"
-        value="l-shaped-right"
-        (focus)="shapeName = 'l-right'"
+        value="l-right"
         formControlName="shape"
       />
       <span class="radio-checkmark"></span>
@@ -46,8 +43,7 @@
         type="radio"
         id="u-shaped"
         name="shape"
-        value="u-shaped"
-        (focus)="shapeName = 'u'"
+        value="u"
         formControlName="shape"
       />
       <span class="radio-checkmark"></span>
@@ -79,8 +75,6 @@
           name="first"
           min="1000"
           maxlength="4"
-          onkeypress="return onlyNumberKey(event)"
-          onInput="checkLength(4,this)"
           (focus)="animWall(0)"
           formControlName="firstSize"
           autofocus
@@ -93,9 +87,7 @@
           name="second"
           min="1000"
           maxlength="4"
-          onkeypress="return onlyNumberKey(event)"
-          onInput="checkLength(4,this)"
-          [disabled]="shapeName === 'line'"
+          disabled="!(shapeName === 'line')"
           (focus)="animWall(1)"
           formControlName="secondSize"
         />
@@ -107,9 +99,7 @@
           name="third"
           min="1000"
           maxlength="4"
-          onkeypress="return onlyNumberKey(event)"
-          onInput="checkLength(4,this)"
-          [disabled]="!(shapeName === 'u')"
+          disabled="!(shapeName === 'u')"
           (focus)="animWall(2)"
           formControlName="thirdSize"
         />
