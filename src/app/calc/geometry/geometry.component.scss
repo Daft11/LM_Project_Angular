@@ -2,14 +2,11 @@
 @import "../../styles/mixins.scss";
 
 .shape-box {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 85vh;
   width: 100%;
-  overflow: hidden;
   .section-header {
     align-self: flex-start;
   }
@@ -83,8 +80,6 @@
     background-color: $colorlightgray;
     border-radius: 15px;
     @include anim(0.07s, 0s);
-    // @include anim_some(background-color, 0.2s, 0s);
-    // @include anim_some(border, 0.05s, 0s);
   }
 }
 
@@ -95,11 +90,6 @@
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  // margin-bottom: 110px;
-
-  .label-disabled {
-    color: lighten($color-text-main, 50);
-  }
 
   .enter__size-input-area {
     align-self: flex-start;
@@ -113,6 +103,9 @@
       font-size: 1.17em;
       font-weight: bold;
       padding: 5px;
+      &.label-disabled {
+        opacity: 50%;
+      }
     }
     input {
       float: right;
@@ -126,7 +119,7 @@
         border-bottom: solid 2px $lmgreencolor;
         animation: none;
       }
-      &:invalid {
+      &.is-invalid {
         border-bottom: solid 2px red;
         animation: none;
         // &:focus{
@@ -137,6 +130,7 @@
       }
       &:disabled {
         color: lighten($color-text-main, 50);
+        border-bottom: none;
       }
     }
   }
@@ -148,6 +142,7 @@
 }
 
 .enter__size-display {
+  z-index: -1;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -22,6 +22,6 @@ export class CountertopComponent implements OnInit {
 
   onClickChoose(countertopId: string) {
     const idName = countertopId;
-    this.calculateService.setCountertop(idName);
+    this.calculateService.setCountertopId(idName);
   }
 }

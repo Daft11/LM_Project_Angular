@@ -1,0 +1,43 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+/*Selected facade area*/
+.selected-container {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  height: 0;
+  width: 100vw;
+  max-width: 100vw;
+  background-color: $contrast;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+  @include anim_some(height, 0.3s, 0s);
+}
+
+.selected-area {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selected-info {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.selected-name {
+  margin-left: 10px;
+}
+
+.selected-img-facade {
+  align-self: flex-start;
+  width: 250px;
+}
+
+.selected-img-countertop {
+  align-self: flex-start;
+  margin-left: 50px;
+  width: 170px;
+}

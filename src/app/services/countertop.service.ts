@@ -188,4 +188,8 @@ export class CountertopService {
   getProducts() {
     return this.products.slice();
   }
+
+  getProductById(id: string) {
+    return this.products.slice().find((product) => product.idName === id);
+  }
 }

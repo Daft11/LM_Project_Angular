@@ -1,0 +1,11 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.results {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+.result-label {
+  text-align: center;
+}

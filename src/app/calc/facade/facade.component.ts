@@ -22,6 +22,6 @@ export class FacadeComponent implements OnInit {
 
   onClickChoose(facadeId: string) {
     const idName = facadeId;
-    this.calculateService.setFacade(idName);
+    this.calculateService.setFacadeId(idName);
   }
 }

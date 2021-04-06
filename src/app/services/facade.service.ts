@@ -40,7 +40,7 @@ export class FacadeService {
     ),
     new ProductModel(
       'berline',
-      'Берлин>',
+      'Берлин',
       '../assets/images/facade/berlin_s.jpg',
       this.materials.mdf,
       this.covers.pvh
@@ -175,5 +175,9 @@ export class FacadeService {
 
   getProducts() {
     return this.products.slice();
+  }
+
+  getProductById(id: string) {
+    return this.products.slice().find((product) => product.idName === id);
   }
 }

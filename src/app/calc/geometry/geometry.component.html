@@ -1,4 +1,9 @@
-<form class="container shape-box" id="shape-box" [formGroup]="geometryForm">
+<form
+  class="container shape-box"
+  id="shape-box"
+  [formGroup]="geometryForm"
+  (ngSubmit)="onSubmitClick()"
+>
   <div class="section-header">
     <h2>Выберите геометрию кухни</h2>
   </div>
@@ -74,10 +79,11 @@
           type="number"
           name="first"
           min="1000"
-          maxlength="4"
+          max="9999"
+          placeholder="0"
           (focus)="animWall(0)"
           formControlName="firstSize"
-          autofocus
+          [ngClass]="{ 'is-invalid': f.firstSize.errors }"
         />
       </label>
       <label [ngClass]="{ 'label-disabled': shapeName === 'line' }">
@@ -86,32 +92,34 @@
           type="number"
           name="second"
           min="1000"
-          maxlength="4"
-          disabled="!(shapeName === 'line')"
+          max="9999"
+          placeholder="0"
           (focus)="animWall(1)"
           formControlName="secondSize"
+          [ngClass]="{ 'is-invalid': f.secondSize.errors }"
         />
       </label>
+
       <label [ngClass]="{ 'label-disabled': !(shapeName === 'u') }">
         Введитe третий размер:
         <input
           type="number"
           name="third"
           min="1000"
-          maxlength="4"
-          disabled="!(shapeName === 'u')"
+          max="9999"
+          placeholder="0"
           (focus)="animWall(2)"
           formControlName="thirdSize"
+          [ngClass]="{ 'is-invalid': f.thirdSize.errors }"
         />
       </label>
     </div>
     <button
       class="next__btn btn"
-      id="calc__btn"
       type="submit"
-      (click)="onSubmitClick()"
+      [disabled]="!geometryForm.valid"
     >
-      Выполнить расчет
+      Подтвердить
     </button>
   </div>
 </form>

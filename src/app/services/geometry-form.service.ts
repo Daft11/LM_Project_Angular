@@ -9,9 +9,9 @@ export class GeometryFormService {
 
   getGeometryForm(
     initShape: string = '',
-    initFirstSize: number = 0,
-    initSecondSize: number = 0,
-    initThirdSize: number = 0
+    initFirstSize: number = null,
+    initSecondSize: number = null,
+    initThirdSize: number = null
   ) {
     return this.formBuilder.group({
       //form validation
@@ -20,27 +20,27 @@ export class GeometryFormService {
         initFirstSize,
         [
           Validators.required,
-          Validators.pattern('[0-9]*'),
-          Validators.minLength(4),
-          Validators.maxLength(5),
+          Validators.pattern('^[0-9]{4}$'),
+          Validators.min(1000),
+          Validators.max(9999),
         ],
       ],
       secondSize: [
         initSecondSize,
         [
           Validators.required,
-          Validators.pattern('[0-9]*'),
-          Validators.minLength(4),
-          Validators.maxLength(5),
+          Validators.pattern('^[0-9]{4}$'),
+          Validators.min(1000),
+          Validators.max(9999),
         ],
       ],
       thirdSize: [
         initThirdSize,
         [
           Validators.required,
-          Validators.pattern('[0-9]*'),
-          Validators.minLength(4),
-          Validators.maxLength(5),
+          Validators.pattern('^[0-9]{4}$'),
+          Validators.min(1000),
+          Validators.max(9999),
         ],
       ],
     });

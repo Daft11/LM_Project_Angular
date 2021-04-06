@@ -1,0 +1,16 @@
+<div class="selected-container" [style.height]="isSelected ? '100px' : '0'">
+  <div class="selected-area container">
+    <div class="selected-info">
+      <h2 class="selected-article">{{ selectedArticle }}</h2>
+      <h2 class="selected-name">{{ selectedName }}</h2>
+      <img
+        src="{{ selectedImgUrl }}"
+        [ngClass]="{
+          'selected-img-facade': typeOfProperty === 'facade',
+          'selected-img-countertop': typeOfProperty === 'countertop'
+        }"
+      />
+    </div>
+    <button class="btn" (click)="onNextClick()">Далее</button>
+  </div>
+</div>

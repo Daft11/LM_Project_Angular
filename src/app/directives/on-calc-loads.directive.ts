@@ -1,11 +1,4 @@
-import {
-  Directive,
-  DoCheck,
-  ElementRef,
-  Output,
-  Renderer2,
-  EventEmitter,
-} from '@angular/core';
+import { Directive, DoCheck, Output, EventEmitter } from '@angular/core';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -24,11 +17,7 @@ export class OnCalcLoadsDirective implements DoCheck {
     containerWidth: number;
   }>();
 
-  constructor(
-    private route: Router,
-    private renderer: Renderer2,
-    private elementRef: ElementRef
-  ) {
+  constructor(private route: Router) {
     this.routeEventsSub = this.route.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((e: RouterEvent) => {

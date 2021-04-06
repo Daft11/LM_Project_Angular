@@ -13,7 +13,6 @@
         {{ facadeItem.material }}<span></span>{{ facadeItem.cover }}
       </p>
       <button
-        href="#"
         class="item__choice-button"
         (click)="onClickChoose(facadeItem.idName)"
       >
@@ -22,3 +21,4 @@
     </div>
   </div>
 </section>
+<app-selected [typeOfProperty]="'facade'"></app-selected>

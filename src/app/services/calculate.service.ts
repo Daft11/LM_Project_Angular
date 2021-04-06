@@ -1,30 +1,59 @@
+import { Subject } from 'rxjs';
+
 export class CalculateService {
-  private facadeId: string = null;
-  private countertopId: string = null;
+  public selectionChanged = new Subject();
+  private facadeId = null;
+  private countertopId = null;
   private sizeArray: number[] = null;
   private shapeName: string = null;
   public isReadyToCalc: boolean = false;
 
-  setFacade(facadeId: string): void {
+  setFacadeId(facadeId: string): void {
     this.facadeId = facadeId;
-    console.log(this.facadeId);
-    console.log(this.countertopId);
-    console.log(this.sizeArray);
-    console.log(this.shapeName);
+    this.selectionChanged.next('facade');
+    this.allSetCheck();
   }
-  setCountertop(countertopId: string): void {
+  setCountertopId(countertopId: string): void {
     this.countertopId = countertopId;
-    console.log(this.facadeId);
-    console.log(this.countertopId);
-    console.log(this.sizeArray);
-    console.log(this.shapeName);
+    this.selectionChanged.next('countertop');
+    this.allSetCheck();
   }
   setGeometry(shapeName: string, sizeArray: number[]): void {
     this.shapeName = shapeName;
     this.sizeArray = sizeArray;
-    console.log(this.facadeId);
-    console.log(this.countertopId);
-    console.log(this.sizeArray);
-    console.log(this.shapeName);
+    this.allSetCheck();
+  }
+
+  getFacadeId() {
+    return this.facadeId;
+  }
+
+  getCoutertopId() {
+    return this.countertopId;
+  }
+
+  allSetCheck() {
+    if (
+      this.facadeId &&
+      this.countertopId &&
+      this.sizeArray &&
+      this.shapeName
+    ) {
+      this.isReadyToCalc = true;
+      this.logParametrs();
+    } else {
+      this.isReadyToCalc = false;
+      this.logParametrs();
+    }
+  }
+
+  logParametrs() {
+    console.log({
+      facadeId: this.facadeId,
+      countertopId: this.countertopId,
+      sizeArray: this.sizeArray,
+      shapeName: this.shapeName,
+      isReadyToCalc: this.isReadyToCalc,
+    });
   }
 }

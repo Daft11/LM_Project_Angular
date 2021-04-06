@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +20,7 @@ import { CountertopService } from './services/countertop.service';
 import { CalculateService } from './services/calculate.service';
 import { OnCalcLoadsDirective } from './directives/on-calc-loads.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SelectedComponent } from './calc/selected/selected.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ResultComponent,
     QueueComponent,
     InfoComponent,
+    SelectedComponent,
     OnCalcLoadsDirective,
   ],
   imports: [
